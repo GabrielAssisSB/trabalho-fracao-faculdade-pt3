@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Matriz de Fração</title>
+  <link rel="stylesheet" href="style/style2.css">
+</head>
+
+<body>
+  <p>
+  <a href="matemática.html">
+    <button type="button">Voltar para a página inicial</button>
+  </a>
+</p>
+  
+  <header>
+    <h1>Matriz de Fração Não Estereotipada</h1>
+  </header>
+
+  <main class="layout">
+
+    <section class="matrix-wrapper">
+      <div class="matrix-container">
+        <img id="matrixImage" src="Captura de Tela (500)-imageonline.co-merged.png" alt="Matriz não colorida">
+        <div class="overlay" id="overlay"></div>
+      </div>
+
+      <p class="hint">
+        Clique em uma peça para criar uma cópia. As peças não podem sair da matriz
+        e respeitam as divisões reais da imagem.
+      </p>
+    </section>
+
+    <aside class="palette">
+      <h2>Paleta de partes referentes a matriz</h2>
+
+      <div class="parts-list" id="partsList">
+        <img class="piece" src="inteiro.png" draggable="false">
+        <img class="piece" src="dois.png" draggable="false">
+        <img class="piece" src="tres.png" draggable="false">
+        <img class="piece" src="quatro.png" draggable="false">
+        <img class="piece" src="seis.png" draggable="false">
+        <img class="piece" src="oito.png" draggable="false">
+      </div>
+
+      <div class="controls">
+        <label>
+          Forma da peça:
+          <select id="shapeSelect">
+  <option value="rect">Retangular</option>
+  <option value="horiz">Reduzido</option>
+  <option value="diag-desc">Diagonal ↘</option>
+  <option value="diag-asc">Diagonal ↗</option>
+  <option value="diag-down-left">Diagonal ↘ Oposto</option>
+  <option value="diag-up-left">Diagonal ↗ Oposto</option>
+</select>
+
+        </label>
+
+        <br><br>
+        <button id="resetBtn">Resetar peças</button>
+        <p class="note">A forma se ajusta dependendo da opção.</p>
+      </div>
+    </aside>
+  </main>
+
+  <script src="style/objeto2.js"></script>
+</body>
+</html>
