@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay     = document.getElementById('overlay');
   const matrixImage = document.getElementById('matrixImage');
   const resetBtn    = document.getElementById('resetBtn');
+  const removeOneBtn = document.getElementById('removeOneBtn');
   const shapeSelect = document.getElementById('shapeSelect');
+  const rowLabels   = document.getElementById('rowLabels');
 
   const WIDTH_FRACTIONS = {
     "inteiro.png": 2,
@@ -27,14 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  /* 🔷 TAMANHO — retângulo tem fator visual 1/2 */
   function calcSize(src){
     const offs = getMatrixOffsets();
     const key  = src.split('/').pop();
 
     let frac = WIDTH_FRACTIONS[key] || 1;
 
-    // 👉 ajuste visual APENAS para retângulo
     if (shapeSelect.value === 'rect') {
       frac = frac / 2;
     }
@@ -45,65 +45,27 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  /* 🔷 FORMAS */
   function applyShape(el){
     const shape = shapeSelect.value;
 
     switch(shape){
-
       case 'rect':
         el.style.clipPath = 'none';
         break;
-
-      case 'diag-desc': // ↘
-        el.style.clipPath = `
-          polygon(
-            0 0,
-            100% 0,
-            0 100%
-          )
-        `;
+      case 'diag-desc':
+        el.style.clipPath = `polygon(0 0,100% 0,0 100%)`;
         break;
-
-      case 'diag-asc': // ↗
-        el.style.clipPath = `
-          polygon(
-            100% 0,
-            100% 100%,
-            0 100%
-          )
-        `;
+      case 'diag-asc':
+        el.style.clipPath = `polygon(100% 0,100% 100%,0 100%)`;
         break;
-
-      case 'horiz': // metade inferior
-        el.style.clipPath = `
-          polygon(
-            0 50%,
-            100% 50%,
-            100% 100%,
-            0 100%
-          )
-        `;
+      case 'horiz':
+        el.style.clipPath = `polygon(0 50%,100% 50%,100% 100%,0 100%)`;
         break;
-
-      case 'diag-down-left': // ↙
-        el.style.clipPath = `
-          polygon(
-            0 0,
-            100% 100%,
-            0 100%
-          )
-        `;
+      case 'diag-down-left':
+        el.style.clipPath = `polygon(0 0,100% 100%,0 100%)`;
         break;
-
-      case 'diag-up-left': // ↖
-        el.style.clipPath = `
-          polygon(
-            100% 0,
-            100% 100%,
-            0 0
-          )
-        `;
+      case 'diag-up-left':
+        el.style.clipPath = `polygon(100% 0,100% 100%,0 0)`;
         break;
     }
   }
@@ -186,8 +148,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  /*  Reset das peças */
   resetBtn.addEventListener('click', () => {
-    overlay.innerHTML = '';
+    const pieces = overlay.querySelectorAll('.placed');
+    pieces.forEach(p => p.remove());
   });
+
+  /*  apagar UMA peça por clique */
+  removeOneBtn.addEventListener('click', () => {
+    const pieces = overlay.querySelectorAll('.placed');
+    if (pieces.length > 0) {
+      pieces[pieces.length - 1].remove(); // remove a última
+    }
+  });
+
+  function createRowLabels(){
+    rowLabels.innerHTML = '';
+    for(let i = 0; i < 6; i++){
+      const label = document.createElement('span');
+      label.textContent = 'F' + (i + 1);
+      rowLabels.appendChild(label);
+    }
+  }
+
+  createRowLabels();
 
 });
