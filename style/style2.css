@@ -118,3 +118,30 @@ button{
 .Linkas{
   text-align: center;
 }
+
+/* 🔷 LABELS */
+.row-labels{
+  position:absolute;
+  left:-35px;
+  top:0;
+  height:100%;
+  width:30px;
+
+  display:flex;
+  flex-direction:column;
+}
+
+.row-labels span{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+
+  font-weight:bold;
+  font-size:14px;
+}
+.buttons-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap; 
+}
