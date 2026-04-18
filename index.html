@@ -9,10 +9,10 @@
 
 <body>
   <p>
-  <a href="https://gabrielassissb.github.io/Home-Page/">
-    <button type="button">Voltar para a página inicial</button>
-  </a>
-</p>
+    <a href="https://gabrielassissb.github.io/Home-Page/">
+      <button type="button">Voltar para a página inicial</button>
+    </a>
+  </p>
   
   <header>
     <h1>Matriz de Fração Não Estereotipada</h1>
@@ -23,7 +23,10 @@
     <section class="matrix-wrapper">
       <div class="matrix-container">
         <img id="matrixImage" src="Captura de Tela (500)-imageonline.co-merged.png" alt="Matriz não colorida">
-        <div class="overlay" id="overlay"></div>
+        
+        <div class="overlay" id="overlay">
+          <div class="row-labels" id="rowLabels"></div>
+        </div>
       </div>
 
       <p class="hint">
@@ -48,18 +51,19 @@
         <label>
           Forma da peça:
           <select id="shapeSelect">
-  <option value="rect">Retangular</option>
-  <option value="horiz">Ret.Reduzido</option>
-  <option value="diag-desc">Triângulo.Ret ◤</option>
-  <option value="diag-asc">Triângulo.Ret ◢</option>
-  <option value="diag-down-left">Triângulo.Ret ◣</option>
-  <option value="diag-up-left">Triângulo.Ret ◥</option>
-</select>
-
+            <option value="rect">Retangular</option>
+            <option value="horiz">Ret.Reduzido</option>
+            <option value="diag-desc">Triângulo.Ret ◤</option>
+            <option value="diag-asc">Triângulo.Ret ◢</option>
+            <option value="diag-down-left">Triângulo.Ret ◣</option>
+            <option value="diag-up-left">Triângulo.Ret ◥</option>
+          </select>
         </label>
 
         <br><br>
-        <button id="resetBtn">Resetar peças</button>
+        <div class="buttons-row">
+            <button id="resetBtn">Resetar peças</button> <button id="removeOneBtn">Apagar uma peça</button>
+        </div>
         <p class="note">A forma se ajusta dependendo da opção.</p>
       </div>
     </aside>
@@ -68,4 +72,3 @@
   <script src="style/objeto2.js"></script>
 </body>
 </html>
-
