@@ -43,7 +43,7 @@ header h1{
   box-shadow:0 6px 18px rgba(0,0,0,0.06);
 }
 
-.matrix-container img{
+.matrix-container img#matrixImage{
   width:100%;
   display:block;
   pointer-events:none;
@@ -51,11 +51,9 @@ header h1{
 
 .overlay{
   position:absolute;
-  left:8px;
-  top:8px;
-  width:calc(100% - 16px);
-  height:calc(100% - 16px);
-  pointer-events:auto;
+  left:0;
+  top:0;
+  pointer-events:none;
   touch-action:none;
 }
 
@@ -83,11 +81,15 @@ header h1{
   cursor:grab;
 }
 
+/* Peças colocadas na matriz */
 .overlay .placed{
   position:absolute;
   cursor:grab;
   z-index:10;
   touch-action:none;
+  pointer-events:auto;
+  object-fit: fill; /* Força a imagem a preencher todo o tamanho da div sem sobrar espaço */
+  will-change:left, top, width, height;
 }
 
 .overlay .placed.dragging{
@@ -109,39 +111,32 @@ button{
   color:var(--muted);
 }
 
-.overlay,
-.overlay .placed {
-  touch-action: none;
-  pointer-events: auto;
-}
-
 .Linkas{
   text-align: center;
 }
 
-/* 🔷 LABELS */
+/* Labels das linhas (F1..F8) */
 .row-labels{
   position:absolute;
   left:-35px;
   top:0;
   height:100%;
   width:30px;
-
   display:flex;
   flex-direction:column;
+  pointer-events:none;
 }
 
 .row-labels span{
-  flex:1;
   display:flex;
   align-items:center;
   justify-content:flex-end;
-
   font-weight:bold;
   font-size:14px;
 }
+
 .buttons-row{
   display:flex;
   gap:10px;
-  flex-wrap:wrap; 
+  flex-wrap:wrap;
 }
