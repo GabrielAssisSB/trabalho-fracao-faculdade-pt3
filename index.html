@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Matriz de Fração</title>
+  <title>Matriz de Fração Não Estereotipada</title>
   <link rel="stylesheet" href="style/style2.css">
 </head>
 
@@ -13,7 +13,12 @@
       <button type="button">Voltar para a página inicial</button>
     </a>
   </p>
-  
+  <p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSckzCiYu1-jvPmr_-3AwAymwHka3AlPibAcTnmkbCe8PMbqMQ/viewform?usp=publish-editor" target="_blank">
+    <button type="button">Feedback do Material</button>
+  </a>
+</p>
+
   <header>
     <h1>Matriz de Fração Não Estereotipada</h1>
   </header>
@@ -22,8 +27,8 @@
 
     <section class="matrix-wrapper">
       <div class="matrix-container">
-        <img id="matrixImage" src="Captura de Tela (500)-imageonline.co-merged.png" alt="Matriz não colorida">
-        
+        <img id="matrixImage" src="Captura de Tela (1216).png" alt="Matriz">
+
         <div class="overlay" id="overlay">
           <div class="row-labels" id="rowLabels"></div>
         </div>
@@ -41,10 +46,12 @@
       <div class="parts-list" id="partsList">
         <img class="piece" src="inteiro.png" draggable="false">
         <img class="piece" src="dois.png" draggable="false">
-        <img class="piece" src="tres.png" draggable="false">
+        <img class="piece" src="terco.png" draggable="false">
         <img class="piece" src="quatro.png" draggable="false">
         <img class="piece" src="seis.png" draggable="false">
         <img class="piece" src="oito.png" draggable="false">
+        <img class="piece" src="12.png" draggable="false">
+        <img class="piece" src="24.png" draggable="false">
       </div>
 
       <div class="controls">
@@ -57,14 +64,19 @@
             <option value="diag-asc">Triângulo.Ret ◢</option>
             <option value="diag-down-left">Triângulo.Ret ◣</option>
             <option value="diag-up-left">Triângulo.Ret ◥</option>
+            <option value="trap-esq-desc">Trapézio esquerdo (diagonal ╲)</option>
+            <option value="trap-dir-desc">Trapézio direito (diagonal ╲)</option>
+            <option value="trap-esq-asc">Trapézio esquerdo (diagonal ╱)</option>
+            <option value="trap-dir-asc">Trapézio direito (diagonal ╱)</option>
           </select>
         </label>
 
         <br><br>
         <div class="buttons-row">
-            <button id="resetBtn">Resetar peças</button> <button id="removeOneBtn">Apagar uma peça</button>
+          <button id="resetBtn">Resetar peças</button>
+          <button id="removeOneBtn">Apagar uma peça</button>
         </div>
-        <p class="note">A forma se ajusta dependendo da opção.</p>
+        <p class="note">O tamanho depende da peça da paleta e da forma escolhida.</p>
       </div>
     </aside>
   </main>
